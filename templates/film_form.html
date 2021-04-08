@@ -1,0 +1,53 @@
+
+{% extends 'main.html' %}
+{% load bootstrap %}
+{% block title %} Film form {% endblock %}
+
+{% block site %}
+
+        <div class="card" style="width: 32rem; float: left; margin-right: 1rem;">
+              <div class="card-body">
+                  {% if new %}
+                    <h5 class="card-title">New movie</h5>
+                  {% else %}
+                    <h5 class="card-title">Edit movie</h5>
+                  {% endif %}
+
+                  <form method="POST" enctype="multipart/form-data">
+
+                  {% csrf_token %}
+
+                  {{ form|bootstrap }}
+                      {{ form_extra|bootstrap }}
+
+                      {% if new %}
+                  <button type="submit" class="btn btn-primary">Add movie</button>
+                      {% else %}
+                  <button type="submit" class="btn btn-primary" >Edit movie</button>
+                      {% endif %}
+
+                  </form>
+              </div>
+            </div>
+
+           <div class="card" style="width: 32rem; float: left; margin-right: 1rem;">
+              <div class="card-body">
+                    <h5 class="card-title">Film review</h5>
+
+                  <form method="POST" enctype="multipart/form-data">
+
+                  {% csrf_token %}
+                  {{ form_review|bootstrap }}
+
+                  <button type="submit" class="btn btn-primary">Review this movie</button>
+
+                  </form>
+              </div>
+            </div>
+            {% for review in reviews %}
+                <h4>Stars: {{review.stars}}</h4>
+                <p>Opinion: {{review.review}}</p>
+            {% endfor %}
+
+    <a href="{% url 'all_films' %}">Back</a>
+{% endblock %}

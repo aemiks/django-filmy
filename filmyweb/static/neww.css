@@ -1,0 +1,7 @@
+body {
+    padding: 2rem;
+}
+.movie-poster {
+    width: 150px;
+    float: left;
+}
