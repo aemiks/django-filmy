@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default = False, cast=bool)
 
 
-ALLOWED_HOSTS = ['moviesweb.herokuapp.com', 'localhost:8000']
+ALLOWED_HOSTS = ['moviesweb-django.herokuapp.com', 'localhost:8000']
 
 
 # Application definition
