@@ -30,6 +30,8 @@
               </div>
             </div>
 
+
+            {% if form_review %}
            <div class="card" style="width: 32rem; float: left; margin-right: 1rem;">
               <div class="card-body">
                     <h5 class="card-title">Film review</h5>
@@ -44,6 +46,8 @@
                   </form>
               </div>
             </div>
+            {% endif %}
+
             {% for review in reviews %}
                 <h4>Stars: {{review.stars}}</h4>
                 <p>Opinion: {{review.review}}</p>
